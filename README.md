@@ -2,5 +2,5 @@
 The Binding of Isaac: Afterbirth+ MOD. (Name yet to define).
 
 ## License
-The source code is under [MIT]().
+The source code is under [MIT](https://github.com/Andrsrz/biobak-ardc/blob/master/LICENSE).
 Assets are property of the owner.
