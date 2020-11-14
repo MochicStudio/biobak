@@ -1,0 +1,3 @@
+<items gfxroot="gfx/items/" version="1">
+  <passive cache="" name="Risk" description="Took It" gfx="collectibles_biobak_ardc_risk.png"/>
+</items>
