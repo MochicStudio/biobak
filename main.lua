@@ -4,6 +4,7 @@ local mod = RegisterMod("biobak-ardc", 1)
 mod.COLLECTIBLE_RISK = Isaac.GetItemIdByName("Risk")
 mod.COLLECTIBLE_JADED_RING = Isaac.GetItemIdByName("Jaded Ring")
 mod.COLLECTIBLE_REVERSE_STOPWATCH = Isaac.GetItemIdByName("Reverse Stopwatch")
+mod.COLLECTIBLE_MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass")
 
 function mod:PassiveItemRisk()
 	-- Beginning of game, initialization
@@ -26,7 +27,15 @@ function mod:PassiveItemReverseStopwatch()
 	end
 end
 
+function mod:PassiveItemMagnifyingGlass()
+	-- Beginning of game, initialization
+	if Game():GetFrameCount() == 1 then
+		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, mod.COLLECTIBLE_MAGNIFYING_GLASS, Vector(300, 200), Vector(0, 0), nil)
+	end
+end
+
 -- Callbacks
 mod:AddCallback(ModCallbacks.MC_POST_UPDATE, mod.PassiveItemRisk)
 mod:AddCallback(ModCallbacks.MC_POST_UPDATE, mod.PassiveItemJadedRing)
 mod:AddCallback(ModCallbacks.MC_POST_UPDATE, mod.PassiveItemReverseStopwatch)
+mod:AddCallback(ModCallbacks.MC_POST_UPDATE, mod.PassiveItemMagnifyingGlass)
