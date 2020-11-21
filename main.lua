@@ -66,6 +66,11 @@ function mod:onCache(player, cacheFlag)
 		end
 	end
 end
+
+-- Check damage taken from the player
+function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
+	game:GetPlayer(0):TakeDamage(damageAmount/2, damageFlags, damageSource, damageCountdownFrames)
+end
 -- ENDS GAME LOGIC
 
 -- Callbacks
@@ -73,3 +78,4 @@ end
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
 mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
 mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
+mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage)
