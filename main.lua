@@ -10,6 +10,14 @@ local ItemsId = {
 	MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass")
 }
 
+-- Check in the game whether or not the player has an item
+local HasItem = {
+	risk = false,
+	jaded_ring = false,
+	reverse_stopwatch = false,
+	magnifying_glass = false
+}
+
 function mod:PassiveItemRisk()
 	-- Beginning of game, initialization
 	if Game():GetFrameCount() == 1 then
