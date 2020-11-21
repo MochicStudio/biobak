@@ -18,6 +18,13 @@ local HasItem = {
 	magnifying_glass = false
 }
 
+-- Stat changes with every item
+local ItemsBonus = {
+	RISK = 2, -- Multiplies damage
+	JADED_RING_SPEED = 0.5, -- Subtract movement speed
+	JADED_RING_SHOT_SPEED = 2 -- Subtract shoot speed
+}
+
 function mod:PassiveItemRisk()
 	-- Beginning of game, initialization
 	if Game():GetFrameCount() == 1 then
