@@ -37,10 +37,39 @@ end
 -- Spawn Items, on game start. For test purposes.
 local function SpawnItems()
 	if game:GetFrameCount() == 1 then
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, mod.COLLECTIBLE_RISK, Vector(150, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, mod.COLLECTIBLE_JADED_RING, Vector(200, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, mod.COLLECTIBLE_REVERSE_STOPWATCH, Vector(250, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, mod.COLLECTIBLE_MAGNIFYING_GLASS, Vector(300, 200), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.RISK, Vector(150, 200), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.JADED_RING, Vector(200, 200), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.REVERSE_STOPWATCH, Vector(250, 200), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.MAGNIFYING_GLASS, Vector(300, 200), Vector(0, 0), nil)
 	end
 end
 -- ENDS LOCAL FUNCTIONS
+
+-- STARTS GAME LOGIC
+-- When the run starts or countinues
+function mod:onPlayerInit(player)
+	UpdateInventory(player)
+end
+
+-- When passive effects should update
+function mod:onUpdate(player)
+	SpawnItems()
+	UpdateInventory(player)
+end
+
+-- Update the Cache
+function mod:onCache(player, cacheFlag)
+	if cacheFlag == CacheFlag.CACHE_DAMAGE then
+		-- Risk passive item
+		if player:HasCollectible(ItemsId.RISK) then
+			player.Damage = player.Damage * ItemsBonus.RISK
+		end
+	end
+end
+-- ENDS GAME LOGIC
+
+-- Callbacks
+-- TODO Check how to use Item Pools and add the item there.
+mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
+mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
+mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
