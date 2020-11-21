@@ -1,10 +1,14 @@
 local mod = RegisterMod("biobak-ardc", 1)
+local game = Game()
+local MIN_TEAR_DELAY = 5
 
--- Set item ENUM
-mod.COLLECTIBLE_RISK = Isaac.GetItemIdByName("Risk")
-mod.COLLECTIBLE_JADED_RING = Isaac.GetItemIdByName("Jaded Ring")
-mod.COLLECTIBLE_REVERSE_STOPWATCH = Isaac.GetItemIdByName("Reverse Stopwatch")
-mod.COLLECTIBLE_MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass")
+-- Set item ENUM with a table
+local ItemsId = {
+	RISK = Isaac.GetItemIdByName("Risk"),
+	JADED_RING = Isaac.GetItemIdByName("Jaded Ring"),
+	REVERSE_STOPWATCH = Isaac.GetItemIdByName("Reverse Stopwatch"),
+	MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass")
+}
 
 function mod:PassiveItemRisk()
 	-- Beginning of game, initialization
