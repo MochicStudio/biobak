@@ -69,7 +69,9 @@ end
 
 -- Check damage taken from the player
 function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
-	game:GetPlayer(0):TakeDamage(damageAmount/2, damageFlags, damageSource, damageCountdownFrames)
+	if tookDamage.Type == EntityType.ENTITY_PLAYER then
+		Isaac.DebugString('The entity es the player')
+	end
 end
 -- ENDS GAME LOGIC
 
