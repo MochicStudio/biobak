@@ -69,7 +69,9 @@ end
 
 -- Check damage taken from the player
 function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
-	tookDamage:TakeDamage(damageAmount, damageFlags, damageSource, damageCountdownFrames)
+	if game:GetPlayer(0):HasCollectible(ItemsId.RISK) then
+		-- Somehow makes the damage double
+	end
 end
 -- ENDS GAME LOGIC
 
