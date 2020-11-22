@@ -69,9 +69,7 @@ end
 
 -- Check damage taken from the player
 function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
-	if tookDamage.Type == EntityType.ENTITY_PLAYER then
-		Isaac.DebugString('The entity es the player')
-	end
+	tookDamage:TakeDamage(damageAmount, damageFlags, damageSource, damageCountdownFrames)
 end
 -- ENDS GAME LOGIC
 
@@ -80,4 +78,4 @@ end
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
 mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
 mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
-mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage)
+mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage, game:GetPlayer(0).Type)
