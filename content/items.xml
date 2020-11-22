@@ -1,6 +1,6 @@
 <items gfxroot="gfx/items/" version="1">
-  <passive cache="" name="Risk" description="Took It" gfx="collectibles_biobak_ardc_risk.png"/>
-  <passive cache="" name="Jaded Ring" description="I Feel Tired..." gfx="collectibles_biobak_ardc_jaded_ring.png" />
+  <passive cache="damage" name="Risk" description="Took It" gfx="collectibles_biobak_ardc_risk.png"/>
+  <passive cache="speed shotspeed" name="Jaded Ring" description="I Feel Tired..." gfx="collectibles_biobak_ardc_jaded_ring.png" />
   <passive cache="" name="Reverse Stopwatch" description="And Back we Go!" gfx="collectibles_biobak_ardc_reverse_stopwatch.png" />
   <passive cache="" name="Magnifying Glass" description="Enhance!" gfx="collectibles_biobak_ardc_magnifying_glass.png" />
 </items>
