@@ -69,8 +69,21 @@ end
 
 -- Check damage taken from the player
 function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
-	if game:GetPlayer(0):HasCollectible(ItemsId.RISK) then
-		-- Somehow makes the damage double
+	local player = game:GetPlayer(0)
+	local additionalDamage = damageAmount - (damageAmount * 2) -- Negative
+
+	if player:HasCollectible(ItemsId.RISK) then
+		local redHearts = player:GetHearts()
+		local soulHearts = player:GetSoulHearts()
+
+		-- Instead of calling TakeDamage method for the entity and
+		-- causing a C stack overflow we just remove an additional
+		-- damageAmount number of half hearts from the player
+		if soulHearts >= 1 then
+			player:AddSoulHearts(additionalDamage)
+		elseif redHearts >= 1 and soulHearts == 0 then
+			player:AddHearts(additionalDamage)
+		end
 	end
 end
 -- ENDS GAME LOGIC
