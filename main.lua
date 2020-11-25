@@ -70,7 +70,11 @@ end
 -- Check damage taken from the player
 function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSource, damageCountdownFrames)
 	if game:GetPlayer(0):HasCollectible(ItemsId.RISK) then
-		-- Somehow makes the damage double
+		-- Instead of calling TakeDamage method for the entity and
+		-- causing a C stack overflow we just remove an additional
+		-- damageAmount number of half hearts from the player
+		Isaac.DebugString(damageAmount - (damageAmount * 2))
+		game:GetPlayer(0):AddHearts(damageAmount - (damageAmount * 2))
 	end
 end
 -- ENDS GAME LOGIC
