@@ -33,16 +33,6 @@ local function UpdateInventory(player)
 	HasItem.reverse_stopwatch = player:HasCollectible(ItemsId.REVERSE_STOPWATCH)
 	HasItem.magnifying_glass = player:HasCollectible(ItemsId.MAGNIFYING_GLASS)
 end
-
--- Spawn Items, on game start. For test purposes.
-local function SpawnItems()
-	if game:GetFrameCount() == 1 then
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.RISK, Vector(150, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.JADED_RING, Vector(200, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.REVERSE_STOPWATCH, Vector(250, 200), Vector(0, 0), nil)
-		Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, ItemsId.MAGNIFYING_GLASS, Vector(300, 200), Vector(0, 0), nil)
-	end
-end
 -- ENDS LOCAL FUNCTIONS
 
 -- STARTS GAME LOGIC
@@ -53,7 +43,6 @@ end
 
 -- When passive effects should update
 function mod:onUpdate(player)
-	SpawnItems()
 	UpdateInventory(player)
 end
 
