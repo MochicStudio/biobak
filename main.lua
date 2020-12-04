@@ -49,7 +49,7 @@ end
 -- Update the Cache
 function mod:onCache(player, cacheFlag)
 	if cacheFlag == CacheFlag.CACHE_DAMAGE then
-		-- Risk passive item
+		-- Passive Item Risk Functionality
 		if player:HasCollectible(ItemsId.RISK) then
 			player.Damage = player.Damage * ItemsBonus.RISK
 		end
@@ -62,6 +62,7 @@ function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSou
 	local additionalDamage = damageAmount - (damageAmount * 2) -- Negative
 
 	if player.Type == tookDamage.Type then
+		-- Passive Item Risk functionality
 		if player:HasCollectible(ItemsId.RISK) then
 			local redHearts = player:GetHearts()
 			local soulHearts = player:GetSoulHearts()
