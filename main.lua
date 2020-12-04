@@ -80,7 +80,6 @@ end
 -- ENDS GAME LOGIC
 
 -- Callbacks
--- TODO Check how to use Item Pools and add the item there.
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
 mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
 mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
