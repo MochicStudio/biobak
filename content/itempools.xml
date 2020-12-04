@@ -2,4 +2,7 @@
   <Pool Name="treasure">
     <Item Name="Risk" Weight="1" DecreaseBy="0.5" RemoveOn="0.1" />
   </Pool>
+  <Pool Name="shop">
+    <Item Name="Jaded Ring" Weight="1" DecreaseBy="0.5" RemoveOn="0.1" />
+  </Pool>
 </ItemPools>
