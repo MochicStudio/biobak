@@ -61,17 +61,19 @@ function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSou
 	local player = game:GetPlayer(0)
 	local additionalDamage = damageAmount - (damageAmount * 2) -- Negative
 
-	if player:HasCollectible(ItemsId.RISK) then
-		local redHearts = player:GetHearts()
-		local soulHearts = player:GetSoulHearts()
+	if player.Type == tookDamage.Type then
+		if player:HasCollectible(ItemsId.RISK) then
+			local redHearts = player:GetHearts()
+			local soulHearts = player:GetSoulHearts()
 
-		-- Instead of calling TakeDamage method for the entity and
-		-- causing a C stack overflow we just remove an additional
-		-- damageAmount number of half hearts from the player
-		if soulHearts >= 1 then
-			player:AddSoulHearts(additionalDamage)
-		elseif redHearts >= 1 and soulHearts == 0 then
-			player:AddHearts(additionalDamage)
+			-- Instead of calling TakeDamage method for the entity and
+			-- causing a C stack overflow we just remove an additional
+			-- damageAmount number of half hearts from the player
+			if soulHearts >= 1 then
+				player:AddSoulHearts(additionalDamage)
+			elseif redHearts >= 1 and soulHearts == 0 then
+				player:AddHearts(additionalDamage)
+			end
 		end
 	end
 end
@@ -82,4 +84,4 @@ end
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
 mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
 mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
-mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage, game:GetPlayer(0).Type)
+mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage)
