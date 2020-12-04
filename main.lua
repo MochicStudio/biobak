@@ -7,7 +7,8 @@ local ItemsId = {
 	RISK = Isaac.GetItemIdByName("Risk"),
 	JADED_RING = Isaac.GetItemIdByName("Jaded Ring"),
 	REVERSE_STOPWATCH = Isaac.GetItemIdByName("Reverse Stopwatch"),
-	MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass")
+	MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass"),
+	BUCKET_OF_GUTS = Isaac.GetItemIdByName("Bucket of Guts")
 }
 
 -- Check in the game whether or not the player has an item
@@ -78,6 +79,75 @@ function mod:onPlayerTookDamage(tookDamage, damageAmount, damageFlags, damageSou
 		end
 	end
 end
+
+-- Use Active Items
+function mod:onActiveItemUse(collectibleType, RNG)
+	local player = game:GetPlayer(0)
+
+	-- Use Bucket of Guts
+	if player:HasCollectible(ItemsId.BUCKET_OF_GUTS) then
+		local x = player.Position.X
+		local y = player.Position.Y
+		-- Inner Creep
+		-- Left Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y + 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y + 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y - 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y - 40), Vector(0, 0), nil)
+		-- Top Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 20, y - 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x, y - 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 20, y - 40), Vector(0, 0), nil)
+		-- Right Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y - 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y - 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y + 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y + 40), Vector(0, 0), nil)
+		-- Bottom Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 20, y + 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x, y + 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 20, y + 40), Vector(0, 0), nil)
+		-- External Creep
+		-- Left Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y + 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y + 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y + 50), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y - 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y - 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y - 50), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 70, y - 70), Vector(0, 0), nil)
+		-- Top Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 20, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 50, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 20, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 50, y - 70), Vector(0, 0), nil)
+		-- Right Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y - 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y - 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y - 50), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y - 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y + 20), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y + 40), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y + 50), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 70, y + 70), Vector(0, 0), nil)
+		-- Bottom Side of Puddle Creep
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 20, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 40, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x - 50, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 20, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 40, y + 70), Vector(0, 0), nil)
+		Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.CREEP_RED, 0, Vector(x + 50, y + 70), Vector(0, 0), nil)
+	end
+end
 -- ENDS GAME LOGIC
 
 -- Callbacks
@@ -85,3 +155,4 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, mod.onPlayerInit)
 mod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, mod.onUpdate)
 mod:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, mod.onCache)
 mod:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, mod.onPlayerTookDamage)
+mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.onActiveItemUse)
