@@ -5,4 +5,5 @@
   <passive cache="" name="Magnifying Glass" description="Enhance!" gfx="collectibles_biobak_ardc_magnifying_glass.png" />
   <active name="Bucket of Guts" description="Where Did You Get Those" gfx="collectibles_biobak_ardc_bucket_of_guts.png" maxcharges="2" />
   <active name="3-D Glasses" description="Everything Looks So Real!" gfx="collectibles_biobak_ardc_3d_glasses.png" maxcharges="3" />
+  <active name="The Button" description="Will You Press It?" gfx="collectibles_biobak_ardc_the_button.png" maxcharges="0" />
 </items>
