@@ -7,5 +7,6 @@
   </Pool>
   <Pool Name="shop">
     <Item Name="Jaded Ring" Weight="1" DecreaseBy="0.5" RemoveOn="0.1" />
+    <Item Name="Reverse Stopwatch" Weight="1" DecreaseBy="0.5" RemoveOn="0.1" />
   </Pool>
 </ItemPools>
