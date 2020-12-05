@@ -9,7 +9,8 @@ local ItemsId = {
 	REVERSE_STOPWATCH = Isaac.GetItemIdByName("Reverse Stopwatch"),
 	MAGNIFYING_GLASS = Isaac.GetItemIdByName("Magnifying Glass"),
 	BUCKET_OF_GUTS = Isaac.GetItemIdByName("Bucket of Guts"),
-	THREE_D_GLASSES = Isaac.GetItemIdByName("3-D Glasses")
+	THREE_D_GLASSES = Isaac.GetItemIdByName("3-D Glasses"),
+	THE_BUTTON = Isaac.GetItemIdByName("The Button")
 }
 
 -- Check in the game whether or not the player has an item
